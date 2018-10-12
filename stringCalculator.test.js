@@ -26,3 +26,6 @@ it('should return sum of unknown number of values in a string', () => {
 it('should work using new line instead of comma ("1\\n2" returns 3)', () => {
     expect(add("1\n2")).toBe(3); 
 })
+it('should work using new lines and commas at the same time ("1\\n2, 3" returns 6)', () => {
+    expect(add("1\n2,3")).toBe(6); 
+})

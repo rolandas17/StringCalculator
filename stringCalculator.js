@@ -33,6 +33,15 @@ function add(values)
               });
             return sum;
         }
+        if(delimiterCheck === 3)
+        {
+            var valArr = values.split(/,|\n/);
+            var sum = 0;
+            valArr.forEach(function(value) {
+                sum += parseInt(value);
+              });
+            return sum;
+        }
         if(delimiterCheck === 0)
         {
             return parseInt(values);
