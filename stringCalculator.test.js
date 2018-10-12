@@ -23,3 +23,6 @@ it('should return sum of unknown number of values in a string', () => {
     str+= "0";
     expect(add(str)).toBe(sum); 
 })
+it('should work using new line instead of comma ("1\\n2" returns 3)', () => {
+    expect(add("1\n2")).toBe(3); 
+})
