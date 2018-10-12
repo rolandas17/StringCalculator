@@ -6,7 +6,15 @@ function add(values)
     }
     else
     {
-        return parseInt(values);
+        if(values.includes(','))
+        {
+            var valArr = values.split(',');
+            return parseInt(valArr[0])+parseInt(valArr[1]);
+        }
+        else
+        {
+            return parseInt(values);
+        }  
     }
     
 }
