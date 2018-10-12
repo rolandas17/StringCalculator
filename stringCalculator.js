@@ -9,7 +9,11 @@ function add(values)
         if(values.includes(','))
         {
             var valArr = values.split(',');
-            return parseInt(valArr[0])+parseInt(valArr[1]);
+            var sum = 0;
+            valArr.forEach(function(value) {
+                sum += parseInt(value);
+              });
+            return sum;
         }
         else
         {

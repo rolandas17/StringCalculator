@@ -9,3 +9,17 @@ it('should return 1 on a string "1"', () => {
 it('should return 3 on a string "1,2"', () => {
     expect(add("1,2")).toBe(3);
 })
+it('should return sum of unknown number of values in a string', () => {
+    var sum = 0;
+    var str = "";
+    var tempVal;
+    var rand = Math.floor(Math.random() * 100)+1;
+    for(var i = 0; i < rand;i++)
+    {
+        tempVal = Math.floor(Math.random() * 50);
+        sum += tempVal;
+        str += tempVal.toString()+ ",";
+    }
+    str+= "0";
+    expect(add(str)).toBe(sum); 
+})
