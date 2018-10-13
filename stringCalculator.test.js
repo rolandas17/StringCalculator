@@ -1,5 +1,4 @@
 const add = require('./stringCalculator');
-const negativeExpection = require('./stringCalculator');
 
 it('should return 0 on an empty string', () => {
     expect(add("")).toBe(0);
