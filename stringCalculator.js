@@ -1,5 +1,6 @@
 function add(values)
 {
+    var valArr;
     if(values.length === 0)
     {
         return 0;
@@ -10,35 +11,39 @@ function add(values)
         if(values.includes('-')){
             negative = true;
         }
+        if(values.substring(0,2) === "//")
+        {
+            var delimiter = values.split('\n')[0];
+            delimiter = delimiter.substring(2,delimiter.length);
+            var newValues = values.substring(2+delimiter.length,values.length);
+            valArr = newValues.split(delimiter);
+        }
+        else
+        {
+            var delimiterCheck = 0;
+            if(values.includes(','))
+                delimiterCheck += 1;
             
+            if(values.includes("\n"))
+                delimiterCheck += 2;
 
-        var delimiterCheck = 0;
+            if(delimiterCheck === 0)
+                if(negative)
+                {
+                    return ("Negatives not allowed: "+values);
+                }
+                else
+                    return parseInt(values);
 
-        if(values.includes(','))
-            delimiterCheck += 1;
-        
-        if(values.includes("\n"))
-            delimiterCheck += 2;
+            if(delimiterCheck === 1)
+                valArr = values.split(',');
 
-        if(delimiterCheck === 0)
-            if(negative)
-            {
-                return ("Negatives not allowed: "+values);
-            }
-            else
-                return parseInt(values);
-            
+            if(delimiterCheck === 2)
+                valArr = values.split('\n');
 
-        var valArr;
-
-        if(delimiterCheck === 1)
-            valArr = values.split(',');
-
-        if(delimiterCheck === 2)
-            valArr = values.split('\n');
-
-        if(delimiterCheck === 3)
-            valArr = values.split(/,|\n/);
+            if(delimiterCheck === 3)
+                valArr = values.split(/,|\n/);
+        }      
         
         if(negative)
         {
@@ -53,7 +58,8 @@ function add(values)
         }
         var sum = 0;
             valArr.forEach(function(value) {
-                sum += parseInt(value);
+                if(value <= 1000)
+                    sum += parseInt(value);
               });
         return sum;
     }

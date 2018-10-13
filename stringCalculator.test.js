@@ -34,3 +34,9 @@ it('should throw exception on a negative number ("-5" returns Negatives not allo
 it('should throw exception on multiple negative numbers ("-5,6\\n-2,4" returns Negatives not allowed: -5,-2)', () => {
     expect(add("-5,6\n-2,4")).toBe("Negatives not allowed: -5,-2"); 
 })
+it('should ignore values greater than 1000 "1001,2" returns 2', () => {
+    expect(add("1001,2")).toBe(2);
+})
+it('should work with custom delimiters "//;\\n1;2”" returns 3', () => {
+    expect(add("//;\n1;2")).toBe(3);
+})
