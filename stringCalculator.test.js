@@ -28,7 +28,9 @@ it('should work using new line instead of comma ("1\\n2" returns 3)', () => {
 it('should work using new lines and commas at the same time ("1\\n2, 3" returns 6)', () => {
     expect(add("1\n2,3")).toBe(6); 
 })
-it('should throw exception on negative numbers ("-5" returns Negatives not allowed: -5)', () => {
+it('should throw exception on a negative number ("-5" returns Negatives not allowed: -5)', () => {
     expect(add("-5")).toBe("Negatives not allowed: -5"); //no idea how to throw and catch actual exceptions, did try toThrow() with no luck
 })
-
+it('should throw exception on multiple negative numbers ("-5,6\\n-2,4" returns Negatives not allowed: -5,-2)', () => {
+    expect(add("-5,6\n-2,4")).toBe("Negatives not allowed: -5,-2"); 
+})

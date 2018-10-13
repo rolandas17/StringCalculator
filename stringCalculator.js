@@ -40,6 +40,17 @@ function add(values)
         if(delimiterCheck === 3)
             valArr = values.split(/,|\n/);
         
+        if(negative)
+        {
+            var negativeString = "";
+            valArr.forEach(function(value) {
+                if(parseInt(value) < 0)
+                    negativeString += value +",";
+                });
+                //remove extra comma at the end
+                negativeString = negativeString.substring(0, negativeString.length-1);
+            return ("Negatives not allowed: "+negativeString);
+        }
         var sum = 0;
             valArr.forEach(function(value) {
                 sum += parseInt(value);
